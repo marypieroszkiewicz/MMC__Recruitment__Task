@@ -1,0 +1,212 @@
+/* ---------------------------------------------------- */
+/* ----- GLOBAL STYLES ----- */
+/* ---------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+/* ---------------------------------------------------- */
+/* ----- CONTAINER ----- */
+/* ---------------------------------------------------- */
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+
+/* ----- END OF WEBPAGE CONTAINER ----- */
+
+/* ----- END OF GLOBAL STYLES ----- */
+
+/* ---------------------------------------------------- */
+/* ----- BOX CONTAINER ----- */
+/* ---------------------------------------------------- */
+
+.profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.profile__box {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.border__shape {
+  width: 100%;
+  height: 100%;
+  border-top: 5px solid #dbb11e;
+  border-right: 5px solid #78479a;
+  border-bottom: 5px solid #78479a;
+  border-left: 5px solid #dbb11e;
+}
+
+.border__shape::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 34px solid #fff;
+  border-left: 34px solid #fff;
+  border-bottom: 34px solid transparent;
+  z-index: 1;
+}
+
+.border__shape::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-right: 34px solid #fff;
+  border-top: 34px solid transparent;
+  z-index: 2;
+}
+
+.avatar__img {
+  cursor: pointer;
+}
+
+.avatar__img:hover {
+  filter: brightness(50%);
+}
+
+.thumb {
+  display: none;
+}
+
+.avatar__img:hover ~ .thumb {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  cursor: pointer;
+}
+
+.caption {
+  text-align: center;
+  padding: 20px 0 40px;
+}
+
+/* ---------------------------------------------------- */
+/* ----- MODAL ----- */
+/* ---------------------------------------------------- */
+
+.modal-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 99999;
+}
+
+.modal {
+  width: 80%;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.modal h3 {
+  padding-bottom: 10px;
+}
+
+.close-window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.modal-window:not(:target) {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 1s;
+}
+
+.modal-window:target {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s, visibility 1s;
+}
+
+/* ----- END OF MODAL ----- */
+
+/* ---------------------------------------------------- */
+/* ----- MEDIA QUERIES ----- */
+/* ---------------------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+  .profile-content {
+    flex-basis: 50%;
+  }
+
+  .profile__box {
+    margin: 0 auto;
+  }
+
+  .modal {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .profiles {
+    justify-content: space-around;
+    flex-wrap: no-wrap;
+    height: 100vh;
+  }
+
+  .profile-content {
+    flex-basis: 0;
+  }
+
+  .modal {
+    width: 40;
+  }
+}
+
+/* ----- END OF MEDIA QUERIES----- */
